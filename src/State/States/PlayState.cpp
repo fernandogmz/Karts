@@ -1,4 +1,5 @@
 #include "PlayState.h"
+#include "PauseState.hpp"
 #include "ResultState.h"
 #include "Player.h"
 
@@ -52,4 +53,6 @@ void PlayState::keyPressed(int key){
         game->toggleDebug();
     if(key == ' ')
         game->getPlayer()->shoot();
+    if(key=='p')
+        game->setState(new PauseState(game));
 }
