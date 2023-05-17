@@ -8,35 +8,36 @@ class Game;
 // TODO add speed settings
 #define MAX_SPEED 100
 
-class Player : public GameObject{
-    
+class Player : public GameObject
+{
+
     ofLight faro;
     float speed;
     bool bLight;
     glm::vec3 prevPos;
     int coins;
-    
+
 public:
-    
     Player(Game *game);
     ~Player();
-    
+
     void init();
     void update() override;
     void draw() override;
     void drawDebug() override;
     void checkCollisions() override;
     float getSpeed();
-    
+
     void steerLeft();
     void steerRight();
     void accelerate();
     void toggleLight();
     void shoot();
     void brake();
+    void slow();
     void stop();
     void addCoins(int n = 1);
     int getCoins();
 };
 
-#endif 
+#endif
