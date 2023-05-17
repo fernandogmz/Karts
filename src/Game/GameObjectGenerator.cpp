@@ -6,6 +6,7 @@
 #include "Goal.h"
 #include "Coin.h"
 #include "Pedestrian.h"
+#include "Barrier.hpp"
 
 GameObjectGenerator::GameObjectGenerator(Game *game): game(game){}
 
@@ -74,6 +75,13 @@ void GameObjectGenerator::generateWorld(){
                     glm::vec3(W/2, roadPos.y, roadPos.z - L * 0.8),
                            glm::vec3(wallSize, wallSize, L));
     game->addGameObject(wall_l);
+    
+    auto barrier = new Barrier(game,
+                            glm::vec3(0,roadPos.y,roadPos.z),
+                            glm::vec3(W,wallSize*2,wallSize));
+    game->addGameObject(barrier);
+    
+    
 //
     auto goal = new Goal(game,
                     glm::vec3(0, roadPos.y, roadPos.z + L/2),
