@@ -95,5 +95,8 @@ int Player::getCoins(){
     return coins;
 }
 void Player::shoot(){
-    game->addGameObject(new Bullet(game, transform));
+    if(coins > 0){
+        game->addGameObject(new Bullet(game, transform));
+        coins--;
+    }
 }
