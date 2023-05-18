@@ -7,6 +7,7 @@
 #include "Coin.h"
 #include "Pedestrian.h"
 #include "Barrier.hpp"
+#include "Crosswalk.hpp"
 
 GameObjectGenerator::GameObjectGenerator(Game *game): game(game){}
 
@@ -95,6 +96,10 @@ void GameObjectGenerator::generateWorld(){
     
     game->addGameObject(coin);
     
+    auto crosswalk = new Crosswalk(game,
+       glm::vec3(0, roadPos.y+0.1, 500), glm::vec3(50, 150, 50));
+
+    game->addGameObject(crosswalk);
     
     auto pedestrian = new Pedestrian(game,
         glm::vec3(W/2 - 100, -25, 500), glm::vec3(50, 150, 50));
