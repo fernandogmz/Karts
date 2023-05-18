@@ -8,6 +8,7 @@
 #include "Pedestrian.h"
 #include "Barrier.hpp"
 #include "Crosswalk.hpp"
+#include "Arch.hpp"
 
 GameObjectGenerator::GameObjectGenerator(Game *game): game(game){}
 
@@ -90,6 +91,11 @@ void GameObjectGenerator::generateWorld(){
     goal->isFixed = true;
     game->addGameObject(goal);
     
+    auto arch = new Arch(game,
+                         glm::vec3(0,roadPos.y, roadPos.z + 200),
+                         glm::vec3(W,100,100));
+    arch->isFixed = true;
+    game->addGameObject(arch);
     
     auto coin = new Coin(game,
         glm::vec3(0, -25, 500), glm::vec3(50));
