@@ -1,18 +1,15 @@
-#ifndef Well_h
-#define Well_h
+#ifndef Soil_h
+#define Soil_h
 
-#include "GameObject.h"
-#include "ofxAssimpModelLoader.h"
-class Soil : public GameObject
+#include "BoxTexture.h"
+
+class Soil : public BoxTexture
 {
 
 public:
-    Soil(Game *game, glm::vec3 pos, glm::vec3 dim);
+    Soil(Game *game, glm::vec3 pos, glm::vec3 dim, string imgName);
     ~Soil();
 
-    void draw() override;
     void receiveCarCollision(Player *car) override;
-    ofxAssimpModelLoader model;
 };
-
 #endif

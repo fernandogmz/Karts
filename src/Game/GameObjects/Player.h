@@ -36,6 +36,7 @@ public:
     void brake();
     void slow();
     void stop();
+    void getCrazy();
     void addCoins(int n = 1);
     int getCoins();
 };

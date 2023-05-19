@@ -89,13 +89,25 @@ void Player::brake()
 
 void Player::slow()
 {
-    if (speed > 0.5)
+    if (speed > 0.6)
     {
         speed -= 0.5;
     }
-    else
+}
+
+void Player::getCrazy()
+{
+    for (int i = 0; i < 10; i++)
     {
-        this->stop();
+        this->steerLeft();
+
+        this->steerRight();
+        this->steerRight();
+        this->steerRight();
+
+        this->steerLeft();
+        this->steerLeft();
+        this->steerRight();
     }
 }
 

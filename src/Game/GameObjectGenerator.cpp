@@ -4,6 +4,7 @@
 #include "Road.h"
 #include "Wall.h"
 #include "Soil.h"
+#include "Oil.h"
 #include "Goal.h"
 #include "Coin.h"
 #include "Pedestrian.h"
@@ -84,8 +85,12 @@ void GameObjectGenerator::generateWorld()
     game->addGameObject(coin);
 
     auto soil = new Soil(game,
-                         glm::vec3(0, -25, 1000), glm::vec3(100, 150, 100));
+                         glm::vec3(0, -25, 1000), glm::vec3(100, 2, 100), "rusty.jpg");
     game->addGameObject(soil);
+
+    auto oil = new Oil(game,
+                       glm::vec3(50, -25, 2000), glm::vec3(100, 2, 100), "oil.jpeg");
+    game->addGameObject(oil);
 
     auto pedestrian = new Pedestrian(game,
                                      glm::vec3(W / 2 - 100, -25, 500), glm::vec3(50, 150, 50));
