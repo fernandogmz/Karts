@@ -35,7 +35,7 @@ void BoxTexture::draw()
 
         // Desactiva la textura
         texture.unbind();
-        ofDisableDepthTest();
+        //ofDisableDepthTest();
     }
     else
     {
