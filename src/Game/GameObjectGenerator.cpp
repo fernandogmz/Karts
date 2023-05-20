@@ -3,6 +3,9 @@
 #include "Game.h"
 #include "Road.h"
 #include "Wall.h"
+#include "Soil.h"
+#include "Oil.h"
+#include "Well.h"
 #include "Goal.h"
 #include "Coin.h"
 #include "Pedestrian.h"
@@ -10,7 +13,7 @@
 #include "Crosswalk.hpp"
 #include "Streetlight.hpp"
 
-GameObjectGenerator::GameObjectGenerator(Game *game): game(game){}
+GameObjectGenerator::GameObjectGenerator(Game *game) : game(game) {}
 
 void GameObjectGenerator::generateWorld(){
     const int W = game->ROAD_WIDTH;
@@ -21,8 +24,8 @@ void GameObjectGenerator::generateWorld(){
     ofImage circuito;
     circuito.load("circuito.png");
 
-    int w = circuito.getWidth()/16;
-    int h = circuito.getHeight()/16;
+    int w = circuito.getWidth() / 16;
+    int h = circuito.getHeight() / 16;
     circuito.resize(w, h);
     
     // ROAD //
@@ -41,29 +44,27 @@ void GameObjectGenerator::generateWorld(){
     }
     
     // WALLS //
-    
 
     auto wall_r = new Wall(game,
-                    glm::vec3(-W/2, roadPos.y, roadPos.z),
+                           glm::vec3(-W / 2, roadPos.y, roadPos.z),
                            glm::vec3(wallSize, wallSize, L));
     game->addGameObject(wall_r);
 
     wall_r = new Wall(game,
-                    glm::vec3(-W/2, roadPos.y, roadPos.z - L * 0.8),
-                           glm::vec3(wallSize, wallSize, L));
+                      glm::vec3(-W / 2, roadPos.y, roadPos.z - L * 0.8),
+                      glm::vec3(wallSize, wallSize, L));
     game->addGameObject(wall_r);
 
-
     auto wall_l = new Wall(game,
-                    glm::vec3(W/2, roadPos.y, roadPos.z),
+                           glm::vec3(W / 2, roadPos.y, roadPos.z),
                            glm::vec3(wallSize, wallSize, L));
     game->addGameObject(wall_l);
 
     wall_l = new Wall(game,
-                    glm::vec3(W/2, roadPos.y, roadPos.z - L * 0.8),
-                           glm::vec3(wallSize, wallSize, L));
+                      glm::vec3(W / 2, roadPos.y, roadPos.z - L * 0.8),
+                      glm::vec3(wallSize, wallSize, L));
     game->addGameObject(wall_l);
-    
+
     // BARRIER //
     
     auto barrier = new Barrier(game,
@@ -72,12 +73,24 @@ void GameObjectGenerator::generateWorld(){
     game->addGameObject(barrier);
     
     // GOAL //
-    
+
     auto goal = new Goal(game,
-                    glm::vec3(0, roadPos.y, roadPos.z + L/2),
-                           glm::vec3(W, 100, 100));
+                         glm::vec3(0, roadPos.y, roadPos.z + L / 2),
+                         glm::vec3(W, 100, 100));
     goal->isFixed = true;
     game->addGameObject(goal);
+
+    auto soil = new Soil(game,
+                         glm::vec3(0, -25, 1000), glm::vec3(100, 2, 100), "rusty.jpg");
+    game->addGameObject(soil);
+
+    auto oil = new Oil(game,
+                       glm::vec3(50, -25, 2000), glm::vec3(100, 2, 200), "oil.jpeg");
+    game->addGameObject(oil);
+
+    auto well = new Well(game,
+                         glm::vec3(-50, -25, 2500), glm::vec3(100, 20, 200), "rusty.jpg");
+    game->addGameObject(well);
     
     // COINS //
     
@@ -99,7 +112,7 @@ void GameObjectGenerator::generateWorld(){
     // PEDESTRIAN //
     
     auto pedestrian = new Pedestrian(game,
-        glm::vec3(W/2 - 100, -25, 500), glm::vec3(50, 150, 50));
+                                     glm::vec3(W / 2 - 100, -25, 500), glm::vec3(50, 150, 50));
 
     game->addGameObject(pedestrian);
 }
