@@ -17,6 +17,7 @@ Coin::~Coin(){
 
 void Coin::update(){
     model.update();
+    transform.rotateDeg(10, 0, 1, 0);
 }
 
 void Coin::draw(){
@@ -31,6 +32,7 @@ void Coin::draw(){
 
 void Coin::receiveCarCollision(Player *car){
     car->addCoins(5);
+    game->coinSound();
     kill();
 }
 

@@ -90,11 +90,13 @@ void GameObjectGenerator::generateWorld(){
     goal->isFixed = true;
     game->addGameObject(goal);
     
-    
-    auto coin = new Coin(game,
-        glm::vec3(0, -25, 500), glm::vec3(50));
-    
-    game->addGameObject(coin);
+    int coinDistance = 1500;
+    for(int z=coinDistance; z < L; z+=coinDistance){
+        int x = (int) ofRandom(2*wallSize,W - 2*wallSize);
+        auto coin = new Coin(game,
+            glm::vec3(-W/2 + x, -25, z), glm::vec3(50));
+        game->addGameObject(coin);
+    }
     
     auto crosswalk = new Crosswalk(game,
        glm::vec3(0, roadPos.y+0.1, 500), glm::vec3(50, 150, 50));
