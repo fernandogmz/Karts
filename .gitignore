@@ -1,4 +1,5 @@
 bin/
+!bin/data
 .DS_Store
 Karts.xcodeproj/
 config.make
