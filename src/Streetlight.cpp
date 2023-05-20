@@ -11,14 +11,14 @@
 Streetlight::Streetlight(Game *game, glm::vec3 pos, glm::vec3 dim): GameObject(game, pos, dim){
     
     leftLight.setParent(transform);
-    leftLight.setDiffuseColor(ofColor::lightCoral);
+    leftLight.setDiffuseColor(ofColor::lightGoldenRodYellow);
     leftLight.setSpotlight();
     leftLight.move(collider->getWidth()/2 - 100, 250, 0);
     leftLight.rotateDeg(-90, 1, 0, 0);
     leftLight.rotateDeg(-45, 0, 0, 1);
     
     rightLight.setParent(transform);
-    rightLight.setDiffuseColor(ofColor::lightBlue);
+    rightLight.setDiffuseColor(ofColor::lightGoldenRodYellow);
     rightLight.setSpotlight();
     rightLight.move(-collider->getWidth()/2 + 100, 250, 0);
     rightLight.rotateDeg(-90, 1, 0, 0);
@@ -36,6 +36,9 @@ void Streetlight::draw(){
     
     leftLight.draw();
     leftLight.enable();
+    
+    rightLight.draw();
+    rightLight.enable();
     
     material.begin();
     {
