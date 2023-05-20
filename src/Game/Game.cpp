@@ -9,6 +9,7 @@ Game::Game(){
     generator = new GameObjectGenerator(this);
     bDebug = false;
     scream.load("aaa.wav");
+    coin.load("coin.wav");
 }
 
 Game::~Game(){
@@ -95,4 +96,8 @@ float Game::getEllapsedTime(){
 
 void Game::doScream(){
     scream.play();
+}
+
+void Game::coinSound(){
+    coin.play();
 }
