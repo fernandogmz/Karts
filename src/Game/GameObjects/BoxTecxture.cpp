@@ -4,12 +4,12 @@ BoxTexture::BoxTexture(Game *game, glm::vec3 pos, glm::vec3 dim, string imgName,
 {
     this->cilinder = cilinder;
     img.load(imgName);
-    soil = img.getTexture();
+    texture = img.getTexture();
     if (!cilinder)
     {
         box.set(dim.x, dim.y, dim.z);
         box.setPosition(pos.x, pos.y, pos.z);
-        box.mapTexCoordsFromTexture(soil);
+        box.mapTexCoordsFromTexture(texture);
     }
     else
     {
@@ -27,19 +27,20 @@ void BoxTexture::draw()
     if (this->cilinder)
     {
         ofEnableDepthTest();
-        soil.bind();
+
+        texture.bind();
 
         // Dibuja el cilindro
         cylinder.draw();
 
         // Desactiva la textura
-        soil.unbind();
+        texture.unbind();
         ofDisableDepthTest();
     }
     else
     {
-        soil.bind();
+        texture.bind();
         box.draw();
-        soil.unbind();
+        texture.unbind();
     }
 }

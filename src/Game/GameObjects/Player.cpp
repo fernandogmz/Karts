@@ -4,6 +4,7 @@
 
 Player::Player(Game *game) : GameObject(game, glm::vec3(100))
 {
+    this->well = false;
 
     material.setDiffuseColor(ofColor::blue);
 
@@ -21,8 +22,8 @@ void Player::init()
     transform.setPosition(0, 0, 0);
     speed = 0;
     bLight = false;
-
-    coins = 0;
+    if (!this->well)
+        coins = 0;
 }
 
 void Player::update()
@@ -115,6 +116,12 @@ void Player::stop()
 {
     speed = 0;
     transform.setPosition(prevPos);
+}
+
+void Player::wellFall()
+{
+    this->well = true;
+    this->init();
 }
 
 void Player::toggleLight()

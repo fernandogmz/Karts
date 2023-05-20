@@ -13,7 +13,7 @@ public:
 
     void draw() override;
     ofImage img;
-    ofTexture soil;
+    ofTexture texture;
     ofPlanePrimitive plane;
     ofBoxPrimitive box;
     ofCylinderPrimitive cylinder;

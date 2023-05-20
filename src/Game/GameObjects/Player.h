@@ -10,7 +10,7 @@ class Game;
 
 class Player : public GameObject
 {
-
+    bool well;
     ofLight faro;
     float speed;
     bool bLight;
@@ -27,6 +27,8 @@ public:
     void drawDebug() override;
     void checkCollisions() override;
     float getSpeed();
+
+    void wellFall();
 
     void steerLeft();
     void steerRight();
