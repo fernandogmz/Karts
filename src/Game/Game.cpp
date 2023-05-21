@@ -10,6 +10,7 @@ Game::Game(){
     bDebug = false;
     scream.load("aaa.wav");
     coin.load("coin.wav");
+    laser.load("laser.wav");
 }
 
 Game::~Game(){
@@ -100,4 +101,8 @@ void Game::doScream(){
 
 void Game::coinSound(){
     coin.play();
+}
+
+void Game::laserSound(){
+    laser.play();
 }
