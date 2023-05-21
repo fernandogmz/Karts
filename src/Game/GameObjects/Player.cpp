@@ -139,13 +139,21 @@ void Player::addCoins(int n)
     coins += n;
 }
 
+void Player::loseAllCoins()
+{
+
+    this->coins = 0;
+}
+
 int Player::getCoins()
 {
     return coins;
 }
 
-void Player::shoot(){
-    if(coins > 0){
+void Player::shoot()
+{
+    if (coins > 0)
+    {
         game->addGameObject(new Bullet(game, transform));
         coins--;
     }
