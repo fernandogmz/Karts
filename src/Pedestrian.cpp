@@ -31,16 +31,13 @@ void Pedestrian::update() {
 void Pedestrian::draw(){
     transform.transformGL();
     model.drawFaces();
-    
-  //  ofDrawAxis(200);
     transform.restoreTransformGL();
-
-    //collider->drawWireframe();
     
 };
 void Pedestrian::receiveCarCollision(Player *car) {
     kill();
     game->doScream();
+    game->getPlayer()->addCoins(100);
 };
 
 void Pedestrian::receiveBulletCollision(GameObject *bullet) {
