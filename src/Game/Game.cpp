@@ -4,11 +4,12 @@
 Game::Game(){
     // TODO create settings
     ROAD_WIDTH = 2000;
-    ROAD_LENGTH = 10000;
+    ROAD_LENGTH = 20000;
 
     generator = new GameObjectGenerator(this);
     bDebug = false;
     scream.load("aaa.wav");
+    coin.load("coin.wav");
 }
 
 Game::~Game(){
@@ -95,4 +96,8 @@ float Game::getEllapsedTime(){
 
 void Game::doScream(){
     scream.play();
+}
+
+void Game::coinSound(){
+    coin.play();
 }
