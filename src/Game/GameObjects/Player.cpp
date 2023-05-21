@@ -146,6 +146,7 @@ int Player::getCoins()
 
 void Player::shoot(){
     if(coins > 0){
+        game->laserSound();
         game->addGameObject(new Bullet(game, transform));
         coins--;
     }
