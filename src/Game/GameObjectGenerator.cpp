@@ -11,6 +11,7 @@
 #include "Pedestrian.h"
 #include "Barrier.hpp"
 #include "Crosswalk.hpp"
+#include "Arch.hpp"
 #include "Streetlight.hpp"
 
 GameObjectGenerator::GameObjectGenerator(Game *game) : game(game) {}
@@ -91,7 +92,13 @@ void GameObjectGenerator::generateWorld(){
     auto well = new Well(game,
                          glm::vec3(-50, -25, 2500), glm::vec3(100, 20, 200), "rusty.jpg");
     game->addGameObject(well);
-    
+  
+    auto arch = new Arch(game,
+                         glm::vec3(0,roadPos.y, roadPos.z + 200),
+                         glm::vec3(W,100,100));
+    arch->isFixed = true;
+    game->addGameObject(arch);
+  
     // COINS //
     
     int coinDistance = 1500;
