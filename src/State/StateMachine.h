@@ -26,6 +26,10 @@ public:
         return savedState;
     }
     
+    void saveState(State *s){
+        savedState = state;
+    }
+    
     void saveAndSetState(State *s){
         savedState = state;
         state = s;
