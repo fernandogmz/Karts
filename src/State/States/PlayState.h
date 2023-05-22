@@ -5,6 +5,7 @@
 #include "Game.h"
 
 
+
 class PlayState: public State{
 public:
     PlayState(Game *game);
@@ -15,6 +16,7 @@ public:
     void draw();
     void next();
     void keyPressed(int key);
+    map<string,float> getGameStats();
         
 };
 #endif

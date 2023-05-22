@@ -2,6 +2,7 @@
 #include "PauseState.hpp"
 #include "ResultState.h"
 #include "Player.h"
+#include <map>
 
 PlayState::PlayState(Game *game): State(game, "Play State"){
     game->init();
@@ -22,6 +23,7 @@ void PlayState::update(){
     
 void PlayState::draw(){
     ofBackground(0);
+    ofSetColor(ofColor::white);
     ofPushMatrix();
     {
         ofTranslate(10, 0);
@@ -53,6 +55,16 @@ void PlayState::keyPressed(int key){
         game->toggleDebug();
     if(key == ' ')
         game->getPlayer()->shoot();
-    if(key=='p')
-        game->setState(new PauseState(game));
+    if(key=='p'){
+        game->saveAccTime();
+        game->saveAndSetState(new PauseState(game));
+    }
+}
+
+std::map<string,float> PlayState::getGameStats(){
+    std::map<string,float> stats;
+    stats["coins"] = (float)game->getPlayer()->getCoins();
+    stats["time"] = game->getAccTime();
+    
+    return stats;
 }
