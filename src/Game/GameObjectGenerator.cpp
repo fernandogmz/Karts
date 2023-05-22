@@ -15,6 +15,7 @@
 #include "Crosswalk.hpp"
 #include "Arch.hpp"
 #include "Streetlight.hpp"
+#include "Bomber.h"
 
 GameObjectGenerator::GameObjectGenerator(Game *game) : game(game) {}
 
@@ -147,6 +148,12 @@ void GameObjectGenerator::generateWorld()
     game->addGameObject(goal);
 
     // ------------------------------------------------------------------ //
+  
+    // BOMBER //
+    auto bomber = new Bomber(game,
+                             glm::vec3(W / 2 - 100, 500, 4000), glm::vec3(50, 150, 50));
+
+    game->addGameObject(bomber);
 
     // COINS //
 
