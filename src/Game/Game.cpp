@@ -34,7 +34,7 @@ void Game::init(){
     cam.setPosition(0, 300, -600);
     cam.setTarget(player->transform);
     cam.setParent(player->transform);
-    //cam.disableMouseInput();
+    cam.disableMouseInput();
     cam.setFarClip(100000);
     
     gameObjects->add(player);
@@ -91,8 +91,16 @@ void Game::setFinished(bool v){
     bPlayerFinish = v;
 }
 
+void Game::saveAccTime(){
+    accTime = getEllapsedTime();
+}
+
+float Game::getAccTime(){
+    return accTime;
+}
+
 float Game::getEllapsedTime(){
-    return ofGetElapsedTimef() - initTime;
+    return ofGetElapsedTimef() - initTime + accTime;
 }
 
 void Game::doScream(){
