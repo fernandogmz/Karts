@@ -123,7 +123,7 @@ void MenuState::draw(){
     
     if( (int)ofGetElapsedTimef() % 2 == 0){
         ofSetColor(ofColor::lightGreen);
-        drawCenteredText(gameplayS, ofGetHeight()-gameplayS.getLineHeight(), "Presiona 'S' para iniciar");
+        drawCenteredText(gameplayS, ofGetHeight()-gameplayS.getLineHeight(), "PRESIONA 'S' PARA INICIAR");
     }
     
 };
