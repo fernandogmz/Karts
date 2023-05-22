@@ -26,6 +26,7 @@ public:
     void draw() override;
     void drawDebug() override;
     void checkCollisions() override;
+    void receiveBombCollision(GameObject *bomb) override;
     float getSpeed();
 
     void wellFall();

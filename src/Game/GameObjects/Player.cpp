@@ -158,3 +158,8 @@ void Player::shoot()
         coins--;
     }
 }
+
+void Player::receiveBombCollision(GameObject *bomb)
+{
+    this->wellFall();
+}

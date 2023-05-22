@@ -15,6 +15,7 @@
 #include "Crosswalk.hpp"
 #include "Arch.hpp"
 #include "Streetlight.hpp"
+#include "Bomber.h"
 
 GameObjectGenerator::GameObjectGenerator(Game *game) : game(game) {}
 
@@ -103,6 +104,11 @@ void GameObjectGenerator::generateWorld()
 
     auto crane = new Crane(game, glm::vec3(-50, -25, 3500), glm::vec3(200, 200, 400));
     game->addGameObject(crane);
+
+    auto bomber = new Bomber(game,
+                             glm::vec3(W / 2 - 100, 500, 4000), glm::vec3(50, 150, 50));
+
+    game->addGameObject(bomber);
 
     auto arch = new Arch(game,
                          glm::vec3(0, roadPos.y, roadPos.z + 200),
