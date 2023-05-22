@@ -29,7 +29,7 @@ public:
     float getSpeed();
 
     void wellFall();
-
+    void loseAllCoins();
     void steerLeft();
     void steerRight();
     void accelerate();

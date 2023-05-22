@@ -139,6 +139,12 @@ void Player::addCoins(int n)
     coins += n;
 }
 
+void Player::loseAllCoins()
+{
+
+    this->coins = 0;
+}
+
 int Player::getCoins()
 {
     return coins;
