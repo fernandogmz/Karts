@@ -6,6 +6,10 @@ class Game;
 
 class ResultState: public State{
 public:
+    // Fonts
+    ofTrueTypeFont gameplayS, gameplayM, gameplayL, gameplayXL;
+    void drawCenteredText(ofTrueTypeFont font, float y, string text);
+    
     ResultState(Game *game);
     
     ~ResultState();
@@ -13,6 +17,11 @@ public:
     void update();
     void draw();
     void next();
+    void keyPressed(int key);
+    
+    ofFile records;
+    map<string,float> stats;
+    vector<string> scores;
         
 };
 

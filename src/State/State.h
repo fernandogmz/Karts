@@ -2,6 +2,8 @@
 #define State_h
 
 #include "ofMain.h"
+#include <map>
+
 class Game;
 
 class State{
@@ -22,6 +24,7 @@ public:
     virtual void next()=0;
     virtual void keyPressed(int key){};
     virtual void keyReleased(int key){};
+    virtual std::map<string,float> getGameStats(){};
 };
 
 #endif
