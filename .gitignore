@@ -1,3 +1,6 @@
-bin/
+bin/*
+Bin/data/records.txt
+!bin/data/
 .DS_Store
 Karts.xcodeproj/
+config.make

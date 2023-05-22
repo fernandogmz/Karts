@@ -15,9 +15,9 @@ class Game : public StateMachine{
     GameObjectGenerator *generator  = nullptr;
     bool bDebug;
     bool bPlayerFinish;
-    float initTime;
+    float initTime, accTime=0;
     
-    ofSoundPlayer scream;
+    ofSoundPlayer scream, coin, laser;
 
     
 public:
@@ -39,7 +39,11 @@ public:
     void addGameObject(GameObject *gameobject);
     
     float getEllapsedTime();
+    void saveAccTime();
+    float getAccTime();
     void doScream();
+    void coinSound();
+    void laserSound();
     
 };
 #endif
