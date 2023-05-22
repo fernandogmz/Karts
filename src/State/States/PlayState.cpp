@@ -44,6 +44,8 @@ void PlayState::draw(){
 };
 
 void PlayState::next(){
+    game->saveAccTime();
+    game->saveState(game->currentState());
     game->setState(new ResultState(game));
 };
 
