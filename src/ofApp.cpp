@@ -2,11 +2,12 @@
 #include "MenuState.h"
 #include "PlayState.h"
 #include "Player.h"
+#include "ResultState.h"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
     game = new Game();
-    game->setState(new PlayState(game));
+    game->setState(new MenuState(game));
     ofSetFrameRate(60);
 }
 
