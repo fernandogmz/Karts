@@ -3,10 +3,10 @@
 #include "Game.h"
 
 MiniNuke::MiniNuke(Game *game, ofNode otherTransform)
-    : GameObject(game, otherTransform.getGlobalPosition(), glm::vec3(20))
+    : GameObject(game, otherTransform.getGlobalPosition(), glm::vec3(30))
 {
     transform.setGlobalOrientation(otherTransform.getGlobalOrientation());
-    material.setEmissiveColor(ofColor::grey);
+    material.setEmissiveColor(ofColor::darkRed);
     this->currentPosition = 500;
 }
 

@@ -11,13 +11,14 @@ Road::Road(Game *game, glm::vec3 pos, glm::vec3 dim): GameObject(game, pos){
     plane.set(dim.x, dim.z);
     
     light.setPosition(200, 200, 200);
+    light.rotateDeg(-90, 1, 0, 0);
     light.setDiffuseColor(ofColor::white);
 }
 Road::~Road(){}
 
 void Road::draw(){
     
-    light.enable();
+    //light.enable();
     material.begin();
     {
         plane.draw();

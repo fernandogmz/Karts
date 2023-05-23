@@ -9,7 +9,7 @@
 Arch::Arch(Game *game, glm::vec3 pos, glm::vec3 dim): GameObject(game, pos, dim){
     // Fonts
     ofTrueTypeFont::setGlobalDpi(72);
-    gameplay128.load("Gameplay.ttf", 128);
+    gameplay128.load("BirdyGame.ttf", 64);
     
     material.setEmissiveColor(ofColor::lightGray);
     

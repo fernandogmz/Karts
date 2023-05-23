@@ -44,7 +44,7 @@ void GameObjectGenerator::generateWorld()
 
     // --- STREET LIGHTS //
     int streetLightDistance = 1000;
-    for (int z = streetLightDistance; z < L; z += streetLightDistance)
+    for (int z = 0; z < L; z += streetLightDistance)
     {
         auto streetLight = new Streetlight(game,glm::vec3(0, roadPos.y, z),glm::vec3(W, 100, 100));
         game->addGameObject(streetLight);

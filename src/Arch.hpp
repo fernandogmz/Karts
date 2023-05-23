@@ -23,6 +23,7 @@ public:
     int prize;
     bool prizeGiven = false;
     
+    
     // Fonts
     ofTrueTypeFont gameplay128;
     
